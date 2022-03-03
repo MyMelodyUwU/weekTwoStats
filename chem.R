@@ -21,7 +21,6 @@ t.test(concen ~ method, data = chem.dat)
 
 # as the p value is < 0.05 we can reject null hypothesis
 
-
 boxplot(concen ~ method, data = chem.dat, horizontal = TRUE)
 
 

@@ -1,0 +1,62 @@
+---
+title: "notes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library("tidyverse")
+library("devtools")
+library("glue")
+library("dplyr")
+library("stringr")
+library("ggplot2")
+library("knitr")
+library("ggrepel")
+library("patchwork")
+library("janitor")
+library("usethis")
+# library("roxygen2")
+library("testthat")
+
+
+dietData = read.table("diet.dat", header=TRUE)
+
+attach(dietData)
+str(dietData)
+head(dietData)
+summary(dietData$diet)
+
+
+
+dogData = read.table("dogs.dat", header=TRUE)
+```
+
+## R Markdown
+
+Today, daddy fung preached to us two different t tests, which he did this 
+
+```{r diet}
+t.test(gain ~ diet, var.equal = TRUE, data = dietData)
+```
+```{r altWay}
+
+#alternative way
+t.test(dietData$gain ~ dietData$diet, var.equal = TRUE)
+
+```
+he then taught us the paired t test, which looks like this
+
+```{r pairedTTest, echo=FALSE}
+#head(dogData)
+# summary(dogData$diet)
+# paired t test
+t.test(dogData$seven.months, dogData$Two.months, paired = TRUE)
+# this is a working test
+```
+this is a  wrong test, this ignores subjects in 2 samples
+
+t.test(dogs$seven.months, dogs$Two.months,var.equal = TRUE)
+
+not working test
+
+
