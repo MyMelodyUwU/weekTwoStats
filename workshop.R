@@ -57,5 +57,13 @@ if(pValue < 0.05) {
   print("Do Not Reject")
 }
 
-CI <- t.test(meltpoint ~ burner, data = melt)$conf.level
-# Ask how to find confidence internval
+# --------------------------------------------------------------------------
+CI <- t.test(meltpoint ~ burner, data = melt)$conf.int
+# Ask how to find confidence interval
+CI
+
+# --------------------------------------------------------------------------
+
+
+
+
