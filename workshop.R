@@ -1,7 +1,21 @@
+library("tidyverse")
+library("devtools")
+library("glue")
+library("dplyr")
+library("stringr")
+library("ggplot2")
+library("knitr")
+library("ggrepel")
+library("patchwork")
+library("janitor")
+library("usethis")
+library("roxygen2")
+library("testthat")
+
 # Task 2
 
 q1 <- 2^10
-q2 <- log(10, base = 2)
+q2 <- round(log(10, base = 2), digits = 2)
 q3a <- cospi(2)
 q3b <- asin(0.5)
 q3c <- qt(0.05, 10) # Double check
@@ -20,18 +34,22 @@ X. <- 7
 temp_C <- c(23.5,23.4,22.1,19.5)
 sd(temp_C)
 i <- 1
-tempF <-  c(1,2,3,4)
-for(i in temp_C) {
-  tempF <- temp_C * 33.8
-  print(i)
-}
+tempF <- (temp_C * 9/5) + 32
+
 tempF
+
+cor(temp_C, tempF)
 
 # Task 5
 
-independantNo <- runif(10, 1, 10)
+# x <- runif(10, 1, 10)
+x <- rnorm(10)
+x
+y <- sum(x^2)
 
+z <- seq(1, 19, 2)
 
+abc <- sum(z * x)
 
 # --------------------------------------------------------------------------
 melt = read.table("melt.dat", header = TRUE)
@@ -58,9 +76,13 @@ if(pValue < 0.05) {
 }
 
 # --------------------------------------------------------------------------
-CI <- t.test(meltpoint ~ burner, data = melt)$conf.int
+nineFive <- t.test(meltpoint ~ burner, data = melt)$conf.int
 # Ask how to find confidence interval
-CI
+nineFive
+
+nineNine <- t.test(meltpoint ~ burner, data = melt, conf.level = 0.99)$conf.int
+# Ask how to find confidence interval
+nineNine
 
 # --------------------------------------------------------------------------
 
