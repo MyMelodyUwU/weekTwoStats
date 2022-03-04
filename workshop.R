@@ -29,5 +29,33 @@ tempF
 
 # Task 5
 
+independantNo <- runif(10, 1, 10)
 
 
+
+# --------------------------------------------------------------------------
+melt = read.table("melt.dat", header = TRUE)
+head(melt)
+head(melt$meltpoint)
+
+stem(melt$meltpoint)
+hist(melt$meltpoint, main = "melting points")
+boxplot(melt$meltpoint, horizontal = TRUE,
+        main = "melting points")
+summary(melt$meltpoint)
+sd(melt$meltpoint)
+mean(melt$meltpoint)
+
+# --------------------------------------------------------------------------
+t.test(meltpoint ~ burner, data = melt)
+
+pValue <- t.test(meltpoint ~ burner, data = melt)$p.value
+
+if(pValue < 0.05) {
+  print("Reject")
+} else {
+  print("Do Not Reject")
+}
+
+CI <- t.test(meltpoint ~ burner, data = melt)$conf.level
+# Ask how to find confidence internval
