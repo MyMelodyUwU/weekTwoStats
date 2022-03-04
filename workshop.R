@@ -4,7 +4,7 @@ q1 <- 2^10
 q2 <- log(10, base = 2)
 q3a <- cospi(2)
 q3b <- asin(0.5)
-q3c <- dunno
+q3c <- qt(0.05, 10) # Double check
 
 # Task 3
 
